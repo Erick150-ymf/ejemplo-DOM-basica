@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario</title>
+</head>
+<body>
+    <section>
+        <div>
+            <div>
+
+                <form id="form" action="https://formspree.io/f/xayayrav" method="post">
+                    <h3><span>HABLEMOS</span></h3>
+                    <label for="name">Nombre Completo<span>*</span></label>
+                    <input name="name" required type="text" id="name" placeholder="Jean">
+                    <label for="email">Correo electrónico <span>*</span></label>
+                    <input name="email" type="text" id="email" required placeholder="1234@gmail.com">
+                    <label for="message">Mensaje</label>
+                    <textarea name="message" id="message" cols="30" rows="10"></textarea>
+                    <button type="submit">Enviar Mensaje</button>
+                </form>
+                <a href="moyae76@gmail.com" id="trucazo">mail</a>
+            </div>
+        </div>
+    </section>
+    <!--<script-->
+    <script>
+        const $form = document.querySelector('#form')
+
+        $form.addEventListener('sumbit', handleSumbit)
+
+        async function handlesumbit(event) {
+            event.preventDefault()
+            const form = new FormData(this)
+            const response = await fetch(this.action, {
+                method: this.method,
+                body: form,
+                headers: {
+                    'Accept': 'aplication/json'
+                }
+            })
+            if (response.ok){
+                this.reset()
+                alert('Gracias por contactarme, te escribiré pronto')
+            }
+
+        }
+    </script>
+</body>
+</html>
